@@ -11,7 +11,7 @@ use App\Http\Requests;
 class HomeController extends Controller
 {
 	/**
-	 * Return the Homepage view
+	 * Return the Homepage view.
 	 * 
 	 */
     public function index()

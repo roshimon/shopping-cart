@@ -11,7 +11,7 @@ use App\Http\Requests;
 class ProductController extends Controller
 {
 	/**
-	 * Get the product by slug
+	 * Get the product by slug.
 	 * 
 	 * @param  String  $slug    The slug of the product
 	 */
