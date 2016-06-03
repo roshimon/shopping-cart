@@ -10,14 +10,11 @@
 	    		<img src="{{ $product->image }}" alt="{{ $product->title }} image">
 	  		</div>
 	  		<div class="content">
-	    		<a class="header">{{ $product->title }}</a>
+	    		<a href="{{ route('product.view', $product->slug) }}" class="header">{{ $product->title }}</a>
 	    		<div class="meta">
 	    			{{ $product->price }}
 	    		</div>
 	    		<div class="description">{{ $product->description }}</div>
-	  		</div>
-	  		<div class="extra content">
-	    		<a href="{{ route('product.view', $product->slug) }}" class="ui button fluid blue">View</a>
 	  		</div>
 		</div>
 	</div>
