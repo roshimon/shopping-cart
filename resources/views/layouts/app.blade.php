@@ -11,7 +11,21 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
 	</head>
 
-	<body>
+	<body id="app-layout">
+
+		<nav class="ui stackable attached compact top menu" id="navigation">
+            <div class="ui container">
+                <div class="item">
+                    <img src="http://semantic-ui.com/images/logo.png">
+                </div>
+                {{--<a class="item">Nieuws</a>--}}
+
+                <div class="right menu">
+                    <a href="#" class="item"><i class="cart icon"></i>Cart (0)</a>
+                </div>
+            </div>
+            
+        </nav>
 
 		@yield('content')
 
