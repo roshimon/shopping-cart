@@ -17,7 +17,7 @@
 	    		<div class="description">{{ $product->description }}</div>
 	  		</div>
 	  		<div class="extra content">
-	    		<button class="ui button fluid blue">View</button>
+	    		<a href="{{ route('product.view', $product->slug) }}" class="ui button fluid blue">View</a>
 	  		</div>
 		</div>
 	</div>
