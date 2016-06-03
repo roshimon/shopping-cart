@@ -9,6 +9,9 @@
 
 		<!-- Semantic UI -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="/css/app.css">
 	</head>
 
 	<body id="app-layout">
