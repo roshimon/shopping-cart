@@ -57,6 +57,12 @@ class CartController extends Controller
         return redirect(route('cart.index'));
     }
 
+    /**
+     * Update Cart items.
+     * 
+     * @param  String  $slug
+     * @param  Request $request
+     */
     public function update($slug, Request $request)
     {
         $product = $this->product->where('slug', $slug)->first();
