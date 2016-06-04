@@ -19,6 +19,13 @@ class Basket
 		$this->product = $product;
 	}
 
+	/**
+	 * Add the product with its quantity to the basket.
+	 * The quantity will be updated if it exists.
+	 * 
+	 * @param Product $product
+	 * @param Integer  $quantity
+	 */
 	public function add(Product $product, $quantity)
 	{
 		if ($this->has($product))
@@ -29,16 +36,21 @@ class Basket
 		$this->update($product, $quantity);
 	}
 
+	/**
+	 * Update the basket.
+	 * 
+	 * @param  Product $product
+	 * @param  Integer  $quantity
+	 */
 	public function update(Product $product, $quantity)
 	{
-		if (! $this->product->find($product->id)->hasStock($quantity))
-		{
+		if (! $this->product->find($product->id)->hasStock($quantity)) {
 			throw new QuantityExceededException;
 		}
 
-		if ($quantity === 0)
-		{
+		if ($quantity === 0) {
 			$this->remove($product);
+
 			return;
 		}
 
@@ -73,15 +85,13 @@ class Basket
 		$ids = [];
 		$items = [];
 
-		foreach ($this->storage->all() as $product)
-		{
+		foreach ($this->storage->all() as $product) {
 			$ids[] = $product['product_id'];
 		}
 
 		$products = $this->product->find($ids);
 
-		foreach ($products as $product)
-		{
+		foreach ($products as $product) {
 			$product->quantity = $this->get($product)['quantity'];
 			$items[] = $product;
 		}
@@ -89,19 +99,15 @@ class Basket
 		return $items;
 	}
 
-	public function itemCount()
-	{
+	public function itemCount() {
 		return count($this->storage->all());
 	}
 
-	public function subTotal()
-	{
+	public function subTotal() {
 		$total = 0;
 
-		foreach ($this->all() as $item)
-		{
-			if ($item->outOfStock())
-			{
+		foreach ($this->all() as $item) {
+			if ($item->outOfStock()) {
 				continue;
 			}
 
@@ -111,12 +117,9 @@ class Basket
 		return $total;
 	}
 
-	public function refresh()
-	{
-		foreach ($this->all() as $item)
-		{
-			if (! $item->hasStock($item->quantity))
-			{
+	public function refresh() {
+		foreach ($this->all() as $item) {
+			if (! $item->hasStock($item->quantity)) {
 				$this->update($item, $item->stock);
 			}
 		}

@@ -30,28 +30,28 @@ class CartController extends Controller
     {
         //return response()->json($this->basket->all());
         $this->basket->refresh();
-        
+
     	return view('pages.cart.index', ['basket' => $this->basket]);
     }
 
     /**
      * Add items to the Cart.
      * 
+     * @param String $slug
+     * @param Integer $quantity
      */
     public function add($slug, $quantity)
     {
     	$product = $this->product->where('slug', $slug)->first();
 
-        if (! $product)
-        {
+        if (! $product) {
             return redirect('/');
         }
 
         try {
             $this->basket->add($product, $quantity);
-
         } catch(QuantityExceededException $e) {
-            return $e;
+            return $e->message;
         }
 
         return redirect(route('cart.index', ['basket' => $this->basket]));
