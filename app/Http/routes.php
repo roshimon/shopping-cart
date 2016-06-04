@@ -25,3 +25,5 @@ Route::post('/order', 'OrderController@create')->name('order.create');
 Route::get('/cart/clear', function () {
 	\Session::flush();
 });
+
+Route::get('/braintree/token', 'BraintreeController@token')->name('braintree.token');

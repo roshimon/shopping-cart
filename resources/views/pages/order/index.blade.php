@@ -95,6 +95,11 @@
 
 				</div>
 			</div>
+
+			<div class="ten wide column">
+				<h2>Payment</h2>
+				<div id="payment"></div>
+			</div>
 		</div>
 
 
@@ -102,3 +107,19 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script src="https://js.braintreegateway.com/js/braintree-2.24.1.min.js"></script>
+<script type="text/javascript">
+	$.ajax({
+		url: '{{ route('braintree.token') }}',
+		type: 'get',
+		dataType: 'json',
+		success: function (data) {
+			braintree.setup(data.token, 'dropin', {
+				container: 'payment'
+			});
+		}
+	});
+</script>
+@endpush
