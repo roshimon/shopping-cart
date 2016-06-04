@@ -27,7 +27,21 @@
 							<a href="{{ route('product.view', $item->slug) }}">{{ $item->title }}</a>
 						</td>
 						<td>€{{ number_format($item->price, 2, ',', ' ') }}</td>
-						<td>{{ $item->quantity }} (temp)</td>
+						<td>
+							<form action="{{ route('cart.update', $item->slug) }}" method="POST">
+								{{ csrf_field() }}
+								<div class="ui action input">
+									<select class="ui compact selection dropdown" name="quantity">
+									@for($num = 1; $num <= $item->stock; $num++)
+										<option value="{{ $num }}" {{ ($num == $item->quantity) ? 'selected' : '' }}>{{ $num }}</option>
+									@endfor
+								    	<option value="0">None</option>
+								  	</select>
+
+								  	<button class="ui button" type="submit">Update</button>
+								</div>
+							</form>
+						</td>
 					</tr>
 				@endforeach
 				</tbody>
@@ -66,3 +80,9 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+$('.dropdown').dropdown();
+</script>
+@endpush

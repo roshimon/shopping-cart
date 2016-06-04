@@ -31,7 +31,7 @@ class CartController extends Controller
         //return response()->json($this->basket->all());
         $this->basket->refresh();
 
-    	return view('pages.cart.index', ['basket' => $this->basket]);
+    	return view('pages.cart.index');
     }
 
     /**
@@ -54,6 +54,23 @@ class CartController extends Controller
             return $e->message;
         }
 
-        return redirect(route('cart.index', ['basket' => $this->basket]));
+        return redirect(route('cart.index'));
+    }
+
+    public function update($slug, Request $request)
+    {
+        $product = $this->product->where('slug', $slug)->first();
+
+        if (! $product) {
+            return redirect('/');
+        }
+
+        try {
+            $this->basket->update($product, $request->input('quantity'));
+        } catch(QuantityExceededException $e) {
+            return $e->message;
+        }
+
+        return redirect(route('cart.index'));
     }
 }

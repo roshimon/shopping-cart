@@ -36,6 +36,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
 		<!-- Semantic UI -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+
+		@stack('scripts')
 	</body>
 
 </html>
