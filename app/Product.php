@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public $quantity = null;
+
     /**
      * Check if a product has a low stock.
      * 
@@ -37,7 +39,7 @@ class Product extends Model
     }
 
     /**
-     * Check if a product has an x amount of stock
+     * Check if a product has an x amount of stock.
      * 
      * @param  Integer  $quantity The amount of stock to check.
      * @return boolean
@@ -45,5 +47,15 @@ class Product extends Model
     public function hasStock($quantity)
     {
     	return $this->stock >= $quantity;
+    }
+
+    /**
+     * Get the Order(s) containing the Product.
+     * 
+     * @return \Illuminate\Database\Eloquent\belongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order')->withPivot('quantity');
     }
 }

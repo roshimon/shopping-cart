@@ -24,7 +24,7 @@ class CartFormRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'required|email|unique:customers',
             'name' => 'required|min:3',
             'address1' => 'required|min:5',
             'address2' => 'min:5',
