@@ -24,7 +24,7 @@
 
 		@if($product->inStock())
 		<a href="{{ route('cart.add', ['slug' => $product->slug, 'quantity' => 1]) }}" class="ui labeled icon button">
-			<i class="cart icon"></i>Add to cart
+			<i class="add to cart icon"></i>Add to cart
 		</a>
 		@endif
 	</div>

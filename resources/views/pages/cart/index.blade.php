@@ -30,15 +30,18 @@
 						<td>
 							<form action="{{ route('cart.update', $item->slug) }}" method="POST">
 								{{ csrf_field() }}
+
 								<div class="ui action input">
-									<select class="ui compact selection dropdown" name="quantity">
+									<select class="ui compact search dropdown" name="quantity">
+										<option value="0">None</option>
+
 									@for($num = 1; $num <= $item->stock; $num++)
 										<option value="{{ $num }}" {{ ($num == $item->quantity) ? 'selected' : '' }}>{{ $num }}</option>
 									@endfor
-								    	<option value="0">None</option>
+								
 								  	</select>
 
-								  	<button class="ui button" type="submit">Update</button>
+								  	<button class="ui blue icon button" type="submit"><i class="check icon"></i></button>
 								</div>
 							</form>
 						</td>
@@ -68,7 +71,7 @@
 			</div>
 
 			<div class="ui segment">
-				<a class="ui labeled green fluid icon button">
+				<a class="ui labeled inverted green fluid icon button">
 					<i class="cart icon"></i>Checkout
 				</a>
 			</div>
