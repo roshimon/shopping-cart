@@ -23,7 +23,7 @@
 		<p>{{ $product->description }}</p>
 
 		@if($product->inStock())
-		<a class="ui labeled icon button">
+		<a href="{{ route('cart.add', ['slug' => $product->slug, 'quantity' => 1]) }}" class="ui labeled icon button">
 			<i class="cart icon"></i>Add to cart
 		</a>
 		@endif

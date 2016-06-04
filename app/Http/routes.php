@@ -13,3 +13,10 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/products/{slug}', 'ProductController@get')->name('product.view');
+
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/cart/add/{slug}/{quantity}', 'CartController@add')->name('cart.add');
+
+Route::get('/cart/clear', function () {
+	\Session::flush();
+});

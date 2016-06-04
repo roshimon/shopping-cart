@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="ui container stackable grid">
+<div class="ui container centered stackable grid">
 
 @foreach($products as $index => $product)
-	<div class="four wide column">
+	<div class="five wide column">
 		<div class="ui fluid card">
 			<div class="image">
 	    		<img src="{{ $product->image }}" alt="{{ $product->title }} image">

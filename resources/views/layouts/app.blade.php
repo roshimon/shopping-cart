@@ -24,7 +24,7 @@
                 {{--<a class="item">Nieuws</a>--}}
 
                 <div class="right menu">
-                    <a href="#" class="item"><i class="cart icon"></i>Cart (0)</a>
+                    <a href="{{ route('cart.index') }}" class="item"><i class="cart icon"></i>Cart ({{ $basket->itemCount() }})</a>
                 </div>
             </div>
             

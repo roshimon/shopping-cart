@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->singleton(
+	App\Support\Storage\Contracts\StorageInterface::class,
+	App\Support\Storage\SessionStorage::class
+);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
