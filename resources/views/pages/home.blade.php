@@ -12,7 +12,7 @@
 	  		<div class="content">
 	    		<a href="{{ route('product.view', $product->slug) }}" class="header">{{ $product->title }}</a>
 	    		<div class="meta">
-	    			{{ $product->price }}
+	    			€{{ number_format($product->price, 2, ', ', ' ') }}
 	    		</div>
 	    		<div class="description">{{ $product->description }}</div>
 	  		</div>

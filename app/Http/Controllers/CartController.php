@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\Basket\Basket;
 use App\Product;
 
+use App\Exception\QuantityExceededException;
+
 class CartController extends Controller
 {
     protected $basket;
@@ -26,9 +28,10 @@ class CartController extends Controller
 	 */
     public function index()
     {
-        return response()->json($this->basket->all());
-    
-    	//return view('pages.cart.index', ['basket' => $this->basket]);
+        //return response()->json($this->basket->all());
+        $this->basket->refresh();
+        
+    	return view('pages.cart.index', ['basket' => $this->basket]);
     }
 
     /**
