@@ -1,7 +1,7 @@
 <table class="ui very basic table">
 	<tr>
 		<td><strong>Sub total</strong></td>
-		<td><strong>€{{ number_format($item->price, 2, ',', ' ') }}</strong></td>
+		<td><strong>€{{ number_format($basket->subTotal(), 2, ',', ' ') }}</strong></td>
 	</tr>
 
 	<tr>

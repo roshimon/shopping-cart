@@ -58,28 +58,27 @@
 	@endif
 	</div>
 
+@if($basket->itemCount() and $basket->subTotal())
 	<div class="five wide column">
 		<div class="ui segments">
 			<div class="ui segment">
 				<h4>Cart summary</h4>
 			</div>
 
-		@if($basket->itemCount() and $basket->subTotal())
+		
 			
 			<div class="ui segment">
 				@include('pages.cart.partials.summary')
 			</div>
 
 			<div class="ui segment">
-				<a class="ui labeled inverted green fluid icon button">
+				<a href="{{ route('order.index') }}" class="ui labeled inverted green fluid icon button">
 					<i class="cart icon"></i>Checkout
 				</a>
 			</div>
-
-		@endif
 		</div>
 	</div>
-
+@endif
 </div>
 
 @endsection
