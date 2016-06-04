@@ -34,4 +34,14 @@ class Order extends Model
     {
     	return $this->belongsToMany('App\Product', 'orders_products')->withPivot('quantity');
     }
+
+    /**
+     * Get the Payment that the Order has.
+     * 
+     * @return \Illuminate\Database\Eloquent\hasOne
+     */
+    public function payment()
+    {
+        return $this->hasOne('App\Payment');
+    }
 }

@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\CartFormRequest;
+use Illuminate\Contracts\Events\Dispatcher;
+
+use Braintree_Transaction;
+
+use App\Events\Event;
+use App\Events\OrderWasCreated;
 
 use App\Address;
 use App\Customer;
+use App\Order;
 
 use App\Basket\Basket;
 use App\Http\Requests;
@@ -36,6 +43,17 @@ class OrderController extends Controller
     	return view('pages.order.index');
     }
 
+    public function show($hash)
+    {
+        $order = Order::with('address', 'products')->where('hash', $hash)->first();
+
+        if(! $order) {
+            return redirect(route('home')); // Add a message
+        }
+
+        return view('pages.order.show', compact('order'));
+    }
+
     /**
      * Create the order.
      * 
@@ -49,6 +67,10 @@ class OrderController extends Controller
     	{
     		return redirect(route('cart.index')); // Add a message
     	}
+
+        if (! $request->input('payment_method_nonce')) {
+            return redirect(route('order.index')); // Add a message
+        }
 
         $hash = bin2hex(random_bytes(32));
 
@@ -79,7 +101,36 @@ class OrderController extends Controller
             $this->getQuantities($items)
         );
 
-        // Braintree
+        $result = Braintree_Transaction::sale([
+            'amount' => ($this->basket->subTotal() + 5),
+            'paymentMethodNonce' => $request->input('payment_method_nonce'),
+            'options' => [
+                'submitForSettlement' => true,
+            ]
+        ]);
+
+        event(new OrderWasCreated($order, $this->basket));
+
+        if (! $result->success) {
+
+            // TODO: Find a way to attach listeners manually to the OrderWasCreated event.
+
+            $order->payment()->created([
+                'failed' => true,
+            ]);
+
+            return redirect(route('order.index'));
+        } else {
+
+            $order->payment()->create([
+                'failed' => false,
+                'transaction_id' => $result->transaction->id,
+            ]);
+
+            $this->basket->clear();
+
+            return redirect(route('order.show', $order->hash));
+        }
     }
 
     /**

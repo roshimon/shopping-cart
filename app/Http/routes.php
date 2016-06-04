@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/products/{slug}', 'ProductController@get')->name('product.view');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
@@ -20,10 +21,6 @@ Route::post('/cart/update/{slug}', 'CartController@update')->name('cart.update')
 
 Route::get('/order', 'OrderController@index')->name('order.index');
 Route::post('/order', 'OrderController@create')->name('order.create');
-
-// Temp
-Route::get('/cart/clear', function () {
-	\Session::flush();
-});
+Route::get('/order/{hash}', 'OrderController@show')->name('order.show');
 
 Route::get('/braintree/token', 'BraintreeController@token')->name('braintree.token');
