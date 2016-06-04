@@ -21,8 +21,18 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    /**
+     * Instance of Basket.
+     * 
+     * @var Basket
+     */
 	protected $basket;
 
+    /**
+     * Create a new OrderController instance.
+     * 
+     * @param Basket $basket
+     */
 	public function __construct(Basket $basket)
 	{
 		$this->basket = $basket;
@@ -30,7 +40,6 @@ class OrderController extends Controller
 
 	/**
 	 * Return the Order page.
-	 * 
 	 */
     public function index()
     {
@@ -43,6 +52,11 @@ class OrderController extends Controller
     	return view('pages.order.index');
     }
 
+    /**
+     * Show the order.
+     * 
+     * @param  String $hash
+     */
     public function show($hash)
     {
         $order = Order::with('address', 'products')->where('hash', $hash)->first();
