@@ -4,8 +4,7 @@
 
 <div class="ui stackable container">
 	
-	{{-- TODO: Turn autocomplete off --}}
-	<form class="ui form" action="{{ route('order.create') }}" method="POST">
+	<form class="ui form" action="{{ route('order.create') }}" method="POST" autocomplete="off">
 		{{ csrf_field() }}
 
 		<div class="ui grid">
