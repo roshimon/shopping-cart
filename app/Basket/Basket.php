@@ -2,17 +2,32 @@
 
 namespace App\Basket;
 
-use App\Support\Storage\Contracts\StorageInterface;
+use App\Exceptions\QuantityExceededException;
 use App\Product;
-
-use App\Basket\Exceptions\QuantityExceededException;
+use App\Support\Storage\Contracts\StorageInterface;
 
 class Basket
 {
+	/**
+	 * Instance of StorageInterface.
+	 * 
+	 * @var Storage
+	 */
 	protected $storage;
 
+	/**
+	 * Instance of Product.
+	 * 
+	 * @var Product
+	 */
 	protected $product;
 
+	/**
+	 * Create a new Basket instance.
+	 * 
+	 * @param StorageInterface $storage
+	 * @param Product          $product
+	 */
 	public function __construct(StorageInterface $storage, Product $product)
 	{
 		$this->storage = $storage;
@@ -28,8 +43,7 @@ class Basket
 	 */
 	public function add(Product $product, $quantity)
 	{
-		if ($this->has($product))
-		{
+		if ($this->has($product)) {
 			$quantity = $this->get($product)['quantity'] + $quantity;
 		}
 
@@ -60,26 +74,47 @@ class Basket
 		]);
 	}
 
+	/**
+	 * Remove a Product from the storage.
+	 * 
+	 * @param  Product $product
+	 */
 	public function remove(Product $product)
 	{
 		$this->storage->unset($product->id);
 	}
 
+	/**
+	 * Check if the basket has a certain product.
+	 * 
+	 * @param  Product $product [description]
+	 */
 	public function has(Product $product)
 	{
 		return $this->storage->exists($product->id);
 	}
 
+	/**
+	 * Get a product that is inside the basket.
+	 * 
+	 * @param  Product $product [description]
+	 */
 	public function get(Product $product)
 	{
 		return $this->storage->get($product->id);
 	}
 
+	/**
+	 * Clear the basket.
+	 */
 	public function clear()
 	{
 		return $this->storage->clear();
 	}
 
+	/**
+	 * Get all products inside the basket.
+	 */
 	public function all()
 	{
 		$ids = [];
@@ -99,10 +134,16 @@ class Basket
 		return $items;
 	}
 
+	/**
+	 * Get the amount of products inside the basket.
+	 */
 	public function itemCount() {
 		return count($this->storage->all());
 	}
 
+	/**
+	 * Get the subtotal price of all products inside the basket.
+	 */
 	public function subTotal() {
 		$total = 0;
 
@@ -117,6 +158,9 @@ class Basket
 		return $total;
 	}
 
+	/**
+	 * Check if the items in the basket are still in stock.
+	 */
 	public function refresh() {
 		foreach ($this->all() as $item) {
 			if (! $item->hasStock($item->quantity)) {

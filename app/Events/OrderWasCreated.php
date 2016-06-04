@@ -2,10 +2,10 @@
 
 namespace App\Events;
 
-use App\Order;
 use App\Basket\Basket;
-
 use App\Events\Event;
+use App\Order;
+
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
@@ -13,8 +13,18 @@ class OrderWasCreated extends Event
 {
     use SerializesModels;
 
+    /**
+     * Instance of Order.
+     * 
+     * @var Order
+     */
     public $order;
     
+    /**
+     * Instance of Basket.
+     * 
+     * @var Basket
+     */
     public $basket;
 
     /**

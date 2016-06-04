@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Requests;
 use Braintree_ClientToken;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class BraintreeController extends Controller
 {
+	/**
+	 * Generate a new BrainTree ClientToken.
+	 */
     public function token()
     {
     	return response()->json([

@@ -3,11 +3,15 @@
 namespace App\Listeners;
 
 use App\Events\OrderWasCreated;
+
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class RecordSuccessfulPayment
 {
+    /**
+     * @var Transaction_id
+     */
     protected $transaction_id;
 
     /**
@@ -21,7 +25,7 @@ class RecordSuccessfulPayment
     }
 
     /**
-     * Handle the event.
+     * Update the Payments table with the 'transaction_id' from BrainTree.
      *
      * @param  OrderWasCreated  $event
      * @return void

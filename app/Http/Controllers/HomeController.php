@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Http\Requests;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 class HomeController extends Controller
 {
 	/**
-	 * Return the Homepage view.
+	 * Return the Home view.
 	 * 
 	 */
     public function index()

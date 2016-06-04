@@ -2,20 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Basket\Basket;
+use App\Exception\QuantityExceededException;
 
 use App\Http\Requests;
 
-use App\Basket\Basket;
 use App\Product;
 
-use App\Exception\QuantityExceededException;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    /**
+     * Instance of Basket.
+     * 
+     * @var Basket
+     */
     protected $basket;
+
+    /**
+     * Instance of Product.
+     * @var Product
+     */
     protected $product;
 
+    /**
+     * Create a new CartController instance.
+     * 
+     * @param Basket  $basket
+     * @param Product $product
+     */
     public function __construct(Basket $basket, Product $product)
     {
         $this->basket = $basket;
@@ -23,7 +39,7 @@ class CartController extends Controller
     }
 
 	/**
-	 * Show all items in the Cart.
+	 * Show all items in the Basket.
 	 * 
 	 */
     public function index()
@@ -35,9 +51,9 @@ class CartController extends Controller
     }
 
     /**
-     * Add items to the Cart.
+     * Add items to the Basket.
      * 
-     * @param String $slug
+     * @param String  $slug
      * @param Integer $quantity
      */
     public function add($slug, $quantity)
@@ -58,7 +74,7 @@ class CartController extends Controller
     }
 
     /**
-     * Update Cart items.
+     * Update the Basket items.
      * 
      * @param  String  $slug
      * @param  Request $request

@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests\CartFormRequest;
-use Illuminate\Contracts\Events\Dispatcher;
-
-use Braintree_Transaction;
+use App\Address;
+use App\Basket\Basket;
+use App\Customer;
 
 use App\Events\Event;
 use App\Events\OrderWasCreated;
 
-use App\Address;
-use App\Customer;
+use App\Http\Requests;
+use App\Http\Requests\CartFormRequest;
+
 use App\Order;
 
-use App\Basket\Basket;
-use App\Http\Requests;
+use Braintree_Transaction;
+
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {

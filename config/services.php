@@ -39,6 +39,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    /**
+     * Configure BrainTree.
+     */
     'braintree' => [
         'model'  => App\User::class,
         'environment' => env('BRAINTREE_ENV'),

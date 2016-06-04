@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\OrderWasCreated;
+
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -19,7 +20,7 @@ class MarkOrderPaid
     }
 
     /**
-     * Handle the event.
+     * Set `paid` to true on the Order model.
      *
      * @param  OrderWasCreated  $event
      * @return void

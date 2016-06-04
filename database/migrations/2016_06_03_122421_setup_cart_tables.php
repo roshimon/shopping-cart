@@ -12,6 +12,9 @@ class SetupCartTables extends Migration
      */
     public function up()
     {
+        /**
+         * Create the products table.
+         */
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
@@ -23,6 +26,9 @@ class SetupCartTables extends Migration
             $table->timestamps();
         });
 
+        /**
+         * Create the orders table.
+         */
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('hash');
@@ -33,6 +39,10 @@ class SetupCartTables extends Migration
             $table->timestamps();
         });
 
+        /**
+         * Create the intermediate table for Orders and Products.
+         * This table includes the proper relationships.
+         */
         Schema::create('orders_products', function (Blueprint $table) {
             $table->increments('id');
 
@@ -47,6 +57,9 @@ class SetupCartTables extends Migration
             $table->integer('quantity');
         });
 
+        /**
+         * Create the customers table.
+         */
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -54,6 +67,9 @@ class SetupCartTables extends Migration
             $table->timestamps();
         });
 
+        /**
+         * Create the addresses table.
+         */
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('address1');
@@ -63,6 +79,9 @@ class SetupCartTables extends Migration
             $table->timestamps();
         });
 
+        /**
+         * Create the payments table.
+         */
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('order_id');
@@ -80,5 +99,10 @@ class SetupCartTables extends Migration
     public function down()
     {
         Schema::drop('products');
+        Schema::drop('orders');
+        Schema::drop('orders_products');
+        Schema::drop('customers');
+        Schema::drop('addresses');
+        Schema::drop('payments');
     }
 }

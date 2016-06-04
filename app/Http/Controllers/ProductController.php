@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Http\Requests;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 class ProductController extends Controller
 {
 	/**
 	 * Get the product by slug.
 	 * 
-	 * @param  String  $slug    The slug of the product
+	 * @param  String  $slug
 	 */
     public function get($slug)
     {
     	$product = Product::where('slug', $slug)->first();
 
-    	if(! $product)
-    	{
+    	if(! $product) {
     		return redirect('/'); // TODO: Add a nice 404 page :-)
     	}
 

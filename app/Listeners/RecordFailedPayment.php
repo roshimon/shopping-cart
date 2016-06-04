@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\OrderWasCreated;
+
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -19,7 +20,7 @@ class RecordFailedPayment
     }
 
     /**
-     * Handle the event.
+     * Set `failed` to true on the Payment model.
      *
      * @param  OrderWasCreated  $event
      * @return void

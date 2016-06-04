@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\OrderWasCreated;
+
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -19,7 +20,7 @@ class UpdateStock
     }
 
     /**
-     * Handle the event.
+     * Decrement the product stock with the quantity from the ordered product.
      *
      * @param  OrderWasCreated  $event
      * @return void
