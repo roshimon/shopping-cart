@@ -19,7 +19,12 @@ class ProductController extends Controller
     	$product = Product::where('slug', $slug)->first();
 
     	if(! $product) {
-    		return redirect('/'); // TODO: Add a nice 404 page :-)
+
+            notify()->flash('404', 'danger', [
+                'text' => 'The product was not found.',
+            ]);
+
+    		return redirect('/');
     	}
 
     	return view('pages.product', compact('product'));

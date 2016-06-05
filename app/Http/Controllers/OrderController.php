@@ -46,7 +46,12 @@ class OrderController extends Controller
     	$this->basket->refresh();
 
     	if (! $this->basket->subTotal()) {
-    		return redirect(route('cart.index')); // Add a message.
+
+            notify()->flash('Whoops..', 'error', [
+                'text' => 'You can\'t order if your cart is empty.',
+            ]);
+
+    		return redirect(route('cart.index'));
     	}
 
     	return view('pages.order.index');
@@ -62,7 +67,12 @@ class OrderController extends Controller
         $order = Order::with('address', 'products')->where('hash', $hash)->first();
 
         if(! $order) {
-            return redirect(route('home')); // Add a message
+            
+            notify()->flash('404', 'error', [
+                'text' => 'We couldn\'t find that order.',
+            ]);
+
+            return redirect(route('home'));
         }
 
         return view('pages.order.show', compact('order'));
@@ -77,13 +87,22 @@ class OrderController extends Controller
     {
     	$this->basket->refresh();
 
-    	if (! $this->basket->subTotal())
-    	{
-    		return redirect(route('cart.index')); // Add a message
+    	if (! $this->basket->subTotal()) {
+
+            notify()->flash('Whoops..', 'error', [
+                'text' => 'You can\'t order if your cart is empty.',
+            ]);
+
+    		return redirect(route('cart.index'));
     	}
 
         if (! $request->input('payment_method_nonce')) {
-            return redirect(route('order.index')); // Add a message
+
+            notify()->flash('Something went wrong..', 'error', [
+                'text' => 'Please try again.',
+            ]);
+
+            return redirect(route('order.index'));
         }
 
         $hash = bin2hex(random_bytes(32));
@@ -133,6 +152,10 @@ class OrderController extends Controller
                 'failed' => true,
             ]);
 
+            notify()->flash('Something went wrong.', 'error', [
+                'text' => 'Please try again.',
+            ]);
+
             return redirect(route('order.index'));
         } else {
 
@@ -142,6 +165,10 @@ class OrderController extends Controller
             ]);
 
             $this->basket->clear();
+
+            notify()->flash('Sweet!', 'success', [
+                'text' => 'Your order has been placed.',
+            ]);
 
             return redirect(route('order.show', $order->hash));
         }

@@ -27,6 +27,10 @@ class RecordFailedPayment
      */
     public function handle(OrderWasCreated $event)
     {
+        notify()->flash('Something went wrong.', 'error', [
+            'text' => 'Please try again.',
+        ]);
+        
         $event->order->payment()->created([
             'failed' => true,
         ]);
