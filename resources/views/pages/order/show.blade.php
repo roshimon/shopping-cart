@@ -38,7 +38,7 @@
 	
 	<div class="ui divider"></div>
 	<p>Shipping: €5,00 <br>
-	<strong>Order total: €{{ number_format($order->total, 2, ', ', ' ') }}</strong>
+	<strong>Order total: €{{ number_format($order->total, 2, ',', '.') }}</strong>
 	</p>
 
 </div>

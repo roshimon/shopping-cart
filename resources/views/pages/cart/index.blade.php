@@ -26,7 +26,7 @@
 						<td>
 							<a href="{{ route('product.view', $item->slug) }}">{{ $item->title }}</a>
 						</td>
-						<td>€{{ number_format($item->price, 2, ',', ' ') }}</td>
+						<td>€{{ number_format($item->price, 2, ',', '.') }}</td>
 						<td>
 							<form action="{{ route('cart.update', $item->slug) }}" method="POST">
 								{{ csrf_field() }}
