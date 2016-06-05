@@ -22,7 +22,6 @@
                 <a href="{{ route('home') }}" class="item">
                     <img src="/img/logo.png">
                 </a>
-                {{--<a class="item">Nieuws</a>--}}
 
                 <div class="right menu">
                     <a href="{{ route('cart.index') }}" class="item"><i class="cart icon"></i>Cart ({{ $basket->itemCount() }})</a>
