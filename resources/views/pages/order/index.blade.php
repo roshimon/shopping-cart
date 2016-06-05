@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="ui stackable container">
+<div class="ui container">
 	
 	<form class="ui form" action="{{ route('order.create') }}" method="POST" autocomplete="off">
 		{{ csrf_field() }}
 
-		<div class="ui grid">
+		<div class="ui stackable grid">
 
 			<div class="six wide column">
 				<h2>Your details</h2>
@@ -72,7 +72,7 @@
 
 		</div>
 
-		<div class="ui grid">
+		<div class="ui stackable grid">
 			<div class="six wide column">
 				<h2>Your order</h2>
 
