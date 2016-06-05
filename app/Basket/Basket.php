@@ -38,7 +38,7 @@ class Basket
 	 * Add the product with its quantity to the basket.
 	 * The quantity will be updated if it exists.
 	 * 
-	 * @param Product $product
+	 * @param Product  $product
 	 * @param Integer  $quantity
 	 */
 	public function add(Product $product, $quantity)
@@ -53,7 +53,7 @@ class Basket
 	/**
 	 * Update the basket.
 	 * 
-	 * @param  Product $product
+	 * @param  Product  $product
 	 * @param  Integer  $quantity
 	 */
 	public function update(Product $product, $quantity)
@@ -87,7 +87,7 @@ class Basket
 	/**
 	 * Check if the basket has a certain product.
 	 * 
-	 * @param  Product $product [description]
+	 * @param  Product $product
 	 */
 	public function has(Product $product)
 	{
@@ -97,7 +97,7 @@ class Basket
 	/**
 	 * Get a product that is inside the basket.
 	 * 
-	 * @param  Product $product [description]
+	 * @param  Product $product
 	 */
 	public function get(Product $product)
 	{

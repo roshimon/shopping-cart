@@ -36,5 +36,9 @@ class RecordSuccessfulPayment
             'failed' => false,
             'transaction_id' => $this->transaction_id,
         ]);
+
+        notify()->flash('Sweet!', 'success', [
+            'text' => 'Your order has been placed.',
+        ]);
     }
 }

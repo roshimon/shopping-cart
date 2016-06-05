@@ -162,6 +162,11 @@ return [
          */
         Laravel\Cashier\CashierServiceProvider::class,
 
+        /*
+         * CodeCourse Notify package.
+         */
+        Codecourse\Notify\NotifyServiceProvider::class,
+
     ],
 
     /*

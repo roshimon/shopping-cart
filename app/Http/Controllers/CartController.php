@@ -44,7 +44,6 @@ class CartController extends Controller
 	 */
     public function index()
     {
-        //return response()->json($this->basket->all());
         $this->basket->refresh();
 
     	return view('pages.cart.index');
@@ -84,6 +83,11 @@ class CartController extends Controller
         $product = $this->product->where('slug', $slug)->first();
 
         if (! $product) {
+
+            notify()->flash('404', 'success', [
+                'text' => 'The product was not found.',
+            ]);
+
             return redirect('/');
         }
 
