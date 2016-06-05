@@ -20,7 +20,7 @@
 		<nav class="ui stackable attached compact top menu" id="navigation">
             <div class="ui container">
                 <a href="{{ route('home') }}" class="item">
-                    <img src="http://semantic-ui.com/images/logo.png">
+                    <img src="/img/logo.png">
                 </a>
                 {{--<a class="item">Nieuws</a>--}}
 
