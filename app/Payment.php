@@ -14,4 +14,14 @@ class Payment extends Model
     protected $fillable = [
         'failed', 'transaction_id',
     ];
+
+    /**
+     * Get the Order that belongs to the Payment.
+     * 
+     * @return \Illuminate\Database\Eloquent\belongsTo
+     */
+    public function order()
+    {
+    	return $this->belongsTo('App\Order');
+    }
 }

@@ -11,6 +11,7 @@
 		<div class="eight wide column">
 			<h2 class="ui header">Shipped to</h2>
 			<p>
+				<strong>{{ $order->customer->name }}</strong><br>
 				{{ $order->address->address1 }}<br>
 				@if($order->address->address2)
 				{{ $order->address->address2 }}<br>

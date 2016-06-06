@@ -26,6 +26,16 @@ class Order extends Model
     }
 
     /**
+     * Get the customer who made the Order.
+     * 
+     * @return \Illuminate\Database\Eloquent\belongsTo
+     */
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer');
+    }
+
+    /**
      * Get the product(s) that the order contains.
      * 
      * @return \Illuminate\Database\Eloquent\belongsToMany

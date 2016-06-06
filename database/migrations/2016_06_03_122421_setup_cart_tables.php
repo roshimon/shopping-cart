@@ -84,7 +84,11 @@ class SetupCartTables extends Migration
          */
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id');
+            
+            $table->integer('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders')
+                  ->onUpdate('cascade')->onDelete('cascade');
+
             $table->boolean('failed');
             $table->string('transaction_id')->nullable(); // Just in case something went wrong
             $table->timestamps();
