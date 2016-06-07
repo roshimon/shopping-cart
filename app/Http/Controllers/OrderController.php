@@ -122,7 +122,7 @@ class OrderController extends Controller
         $order = $customer->orders()->create([
             'hash' => $hash,
             'paid' => false,
-            'total' => $this->basket->subTotal() + 5,
+            'total' => ($this->basket->subTotal() + 5),
         ]);
 
         $address->orders()->save($order);
