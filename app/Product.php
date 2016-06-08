@@ -10,7 +10,7 @@ class Product extends Model
 
     /**
      * Check if a product has a low stock.
-     * 
+     *
      * @return boolean
      */
     public function hasLowStock()
@@ -20,7 +20,7 @@ class Product extends Model
 
     /**
      * Check if a product is out of stock.
-     * 
+     *
      * @return boolean
      */
     public function outOfStock()
@@ -30,7 +30,7 @@ class Product extends Model
 
     /**
      * Check if a product is in stock.
-     * 
+     *
      * @return boolean
      */
     public function inStock()
@@ -40,7 +40,7 @@ class Product extends Model
 
     /**
      * Check if a product has an x amount of stock.
-     * 
+     *
      * @param  Integer  $quantity The amount of stock to check.
      * @return boolean
      */
@@ -51,7 +51,7 @@ class Product extends Model
 
     /**
      * Get the Order(s) containing the Product.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\belongsToMany
      */
     public function orders()

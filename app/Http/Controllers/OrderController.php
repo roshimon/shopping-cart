@@ -23,14 +23,14 @@ class OrderController extends Controller
 {
     /**
      * Instance of Basket.
-     * 
+     *
      * @var Basket
      */
 	protected $basket;
 
     /**
      * Create a new OrderController instance.
-     * 
+     *
      * @param Basket $basket
      */
 	public function __construct(Basket $basket)
@@ -59,7 +59,7 @@ class OrderController extends Controller
 
     /**
      * Show the order.
-     * 
+     *
      * @param  String $hash
      */
     public function show($hash)
@@ -67,7 +67,7 @@ class OrderController extends Controller
         $order = Order::with('address', 'products')->where('hash', $hash)->first();
 
         if(! $order) {
-            
+
             notify()->flash('404', 'error', [
                 'text' => 'We couldn\'t find that order.',
             ]);
@@ -80,7 +80,7 @@ class OrderController extends Controller
 
     /**
      * Create the order.
-     * 
+     *
      * @param  CartFormRequest $request
      */
     public function create(CartFormRequest $request)
@@ -176,7 +176,7 @@ class OrderController extends Controller
 
     /**
      * Get the quantity from each item inside the basket.
-     * 
+     *
      * @param  Array $items
      * @return Array
      */

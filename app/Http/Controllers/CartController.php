@@ -15,7 +15,7 @@ class CartController extends Controller
 {
     /**
      * Instance of Basket.
-     * 
+     *
      * @var Basket
      */
     protected $basket;
@@ -28,7 +28,7 @@ class CartController extends Controller
 
     /**
      * Create a new CartController instance.
-     * 
+     *
      * @param Basket  $basket
      * @param Product $product
      */
@@ -40,7 +40,7 @@ class CartController extends Controller
 
 	/**
 	 * Show all items in the Basket.
-	 * 
+	 *
 	 */
     public function index()
     {
@@ -51,7 +51,7 @@ class CartController extends Controller
 
     /**
      * Add items to the Basket.
-     * 
+     *
      * @param String  $slug
      * @param Integer $quantity
      */
@@ -74,7 +74,7 @@ class CartController extends Controller
 
     /**
      * Update the Basket items.
-     * 
+     *
      * @param  String  $slug
      * @param  Request $request
      */

@@ -10,21 +10,21 @@ class Basket
 {
 	/**
 	 * Instance of StorageInterface.
-	 * 
+	 *
 	 * @var Storage
 	 */
 	protected $storage;
 
 	/**
 	 * Instance of Product.
-	 * 
+	 *
 	 * @var Product
 	 */
 	protected $product;
 
 	/**
 	 * Create a new Basket instance.
-	 * 
+	 *
 	 * @param StorageInterface $storage
 	 * @param Product          $product
 	 */
@@ -37,7 +37,7 @@ class Basket
 	/**
 	 * Add the product with its quantity to the basket.
 	 * The quantity will be updated if it exists.
-	 * 
+	 *
 	 * @param Product  $product
 	 * @param Integer  $quantity
 	 */
@@ -52,7 +52,7 @@ class Basket
 
 	/**
 	 * Update the basket.
-	 * 
+	 *
 	 * @param  Product  $product
 	 * @param  Integer  $quantity
 	 */
@@ -76,7 +76,7 @@ class Basket
 
 	/**
 	 * Remove a Product from the storage.
-	 * 
+	 *
 	 * @param  Product $product
 	 */
 	public function remove(Product $product)
@@ -86,7 +86,7 @@ class Basket
 
 	/**
 	 * Check if the basket has a certain product.
-	 * 
+	 *
 	 * @param  Product $product
 	 */
 	public function has(Product $product)
@@ -96,7 +96,7 @@ class Basket
 
 	/**
 	 * Get a product that is inside the basket.
-	 * 
+	 *
 	 * @param  Product $product
 	 */
 	public function get(Product $product)
@@ -137,14 +137,16 @@ class Basket
 	/**
 	 * Get the amount of products inside the basket.
 	 */
-	public function itemCount() {
+	public function itemCount()
+	{
 		return count($this->storage->all());
 	}
 
 	/**
 	 * Get the subtotal price of all products inside the basket.
 	 */
-	public function subTotal() {
+	public function subTotal()
+	{
 		$total = 0;
 
 		foreach ($this->all() as $item) {
@@ -161,7 +163,8 @@ class Basket
 	/**
 	 * Check if the items in the basket are still in stock.
 	 */
-	public function refresh() {
+	public function refresh()
+	{
 		foreach ($this->all() as $item) {
 			if (! $item->hasStock($item->quantity)) {
 				$this->update($item, $item->stock);

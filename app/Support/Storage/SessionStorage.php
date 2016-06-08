@@ -10,19 +10,19 @@ class SessionStorage implements StorageInterface
 {
 	/**
 	 * The bucket beeing used.
-	 * 
+	 *
 	 * @var Bucket
 	 */
 	protected $bucket;
 
 	/**
 	 * Set the bucket name that should be used.
-	 * 
+	 *
 	 * @param String $bucket
 	 */
 	public function __construct($bucket = 'default')
 	{
-		if(! Session::has($bucket)) 
+		if(! Session::has($bucket))
 		{
 			Session::put($bucket, []);
 		}
@@ -31,8 +31,8 @@ class SessionStorage implements StorageInterface
 	}
 
 	/**
-	 * Put the product inside the bucket. 
-	 * 
+	 * Put the product inside the bucket.
+	 *
 	 * @param Integer $index
 	 * @param array   $value
 	 */
@@ -43,10 +43,10 @@ class SessionStorage implements StorageInterface
 
 	/**
 	 * Get the product from the bucket.
-	 * 
+	 *
 	 * @param Integer $index
 	 */
-	public function get($index) 
+	public function get($index)
 	{
 		if (! $this->exists($index)) {
 			return null;
@@ -57,7 +57,7 @@ class SessionStorage implements StorageInterface
 
 	/**
 	 * Check if the product index exists in the bucket.
-	 * 
+	 *
 	 * @param Integer $index
 	 */
 	public function exists($index)
@@ -76,7 +76,7 @@ class SessionStorage implements StorageInterface
 
 	/**
 	 * Remove a product from the bucket.
-	 * 
+	 *
 	 * @param Integer $index
 	 */
 	public function unset($index)

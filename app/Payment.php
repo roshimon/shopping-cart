@@ -17,7 +17,7 @@ class Payment extends Model
 
     /**
      * Get the Order that belongs to the Payment.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\belongsTo
      */
     public function order()

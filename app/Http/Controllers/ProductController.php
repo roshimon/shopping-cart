@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
 	/**
 	 * Get the product by slug.
-	 * 
+	 *
 	 * @param  String  $slug
 	 */
     public function get($slug)

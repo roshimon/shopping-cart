@@ -17,7 +17,7 @@ class Order extends Model
 
     /**
      * Get the address(es) that belongs to the order.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\belongsTo
      */
     public function address()
@@ -27,7 +27,7 @@ class Order extends Model
 
     /**
      * Get the customer who made the Order.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\belongsTo
      */
     public function customer()
@@ -37,7 +37,7 @@ class Order extends Model
 
     /**
      * Get the product(s) that the order contains.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\belongsToMany
      */
     public function products()
@@ -47,7 +47,7 @@ class Order extends Model
 
     /**
      * Get the Payment that the Order has.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\hasOne
      */
     public function payment()

@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
 	/**
 	 * Return the Home view.
-	 * 
+	 *
 	 */
     public function index()
     {

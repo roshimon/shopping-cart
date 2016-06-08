@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Configure BrainTree. 
+     * Configure BrainTree.
      *
      * @return void
      */

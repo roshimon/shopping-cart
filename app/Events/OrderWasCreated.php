@@ -15,14 +15,14 @@ class OrderWasCreated extends Event
 
     /**
      * Instance of Order.
-     * 
+     *
      * @var Order
      */
     public $order;
-    
+
     /**
      * Instance of Basket.
-     * 
+     *
      * @var Basket
      */
     public $basket;
