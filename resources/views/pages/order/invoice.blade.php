@@ -6,7 +6,7 @@
         <title>Invoice #{{ $order->id }}</title>
 
         <!-- Semantic UI -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
 
         <style>
             body {
@@ -40,7 +40,7 @@
                         </p>
                     </div>
                     <div class="seven wide column">
-                        <img src="https://pbs.twimg.com/profile_images/576775865284980736/cWg0kvVg.png" alt="Codecourse logo" class="ui right floated image logo">
+                        <img src="https://s3.amazonaws.com/s3.codecourse.com/public/apple-touch-icon-180x180.png" alt="Codecourse logo" class="ui right floated image logo">
                         <p>
                             <strong>Codecourse Ltd.</strong><br>
                             11 Course Place<br>
