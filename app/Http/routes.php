@@ -22,5 +22,6 @@ Route::post('/cart/update/{slug}', 'CartController@update')->name('cart.update')
 Route::get('/order', 'OrderController@index')->name('order.index');
 Route::post('/order', 'OrderController@create')->name('order.create');
 Route::get('/order/{hash}', 'OrderController@show')->name('order.show');
+Route::get('/order/{hash}/download', 'OrderController@download')->name('order.download');
 
 Route::get('/braintree/token', 'BraintreeController@token')->name('braintree.token');

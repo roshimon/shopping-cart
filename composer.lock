@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a20c4dd21fc90173d45f3e9ecc9bffea",
-    "content-hash": "7f61f31a445326fc88629a85526c1601",
+    "hash": "c01e5b5b3f61c605e05c0254033842d3",
+    "content-hash": "32d7f508a7100677c924056919b41e19",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -147,6 +147,49 @@
             ],
             "description": "Flexible flash notifications for Laravel",
             "time": "2015-12-01 09:20:03"
+        },
+        {
+            "name": "danielboendergaard/phantom-pdf",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielboendergaard/phantom-pdf.git",
+                "reference": "d753291336a46eaf7318bda41ef8c6565ec3bf0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielboendergaard/phantom-pdf/zipball/d753291336a46eaf7318bda41ef8c6565ec3bf0f",
+                "reference": "d753291336a46eaf7318bda41ef8c6565ec3bf0f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/http-foundation": ">=2.6",
+                "symfony/process": ">=2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhantomPdf\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bøndergaard",
+                    "email": "danielboendergaard@gmail.com"
+                }
+            ],
+            "description": "A Package for generating PDF files using PhantomJS",
+            "keywords": [
+                "html",
+                "laravel",
+                "pdf"
+            ],
+            "time": "2016-05-25 08:07:49"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

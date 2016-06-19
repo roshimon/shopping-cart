@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "laravel/cashier-braintree": "^1.0",
-        "codecourse/notify": "^1.1"
+        "codecourse/notify": "^1.1",
+        "danielboendergaard/phantom-pdf": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -39,7 +40,8 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php -r \"exec('chmod -R +x vendor/danielboendergaard/phantom-pdf/bin/phantomjs');\""
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",

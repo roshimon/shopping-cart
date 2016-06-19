@@ -54,4 +54,19 @@ class Order extends Model
     {
         return $this->hasOne('App\Payment');
     }
+
+    /**
+     * Get the total quantity of the ordered products.
+     *
+     * @return Integer
+     */
+    public function totalQuantity()
+    {
+        $total = 0;
+        foreach($this->products as $product) {
+            $total += $product->pivot->quantity;
+        }
+
+        return $total;
+    }
 }

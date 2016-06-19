@@ -6,6 +6,8 @@ use App\Address;
 use App\Basket\Basket;
 use App\Customer;
 
+use Storage;
+
 use App\Events\Event;
 use App\Events\OrderWasCreated;
 
@@ -18,6 +20,8 @@ use Braintree_Transaction;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Http\Request;
+
+use PDF;
 
 class OrderController extends Controller
 {
@@ -189,5 +193,17 @@ class OrderController extends Controller
         }
 
         return $quantities;
+    }
+
+    /**
+     * Generate and download the invoice as a PDF file.
+     *
+     * @param  String $hash
+     */
+    public function download($hash)
+    {
+        $order = Order::where('hash', $hash)->first();
+
+        return PDF::createFromView(view('pages.order.invoice', compact('order')), "order-{$order->id}.pdf");
     }
 }
