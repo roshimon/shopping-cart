@@ -45,7 +45,7 @@
 
     <br>
     <a href="{{ route('order.download', $order->hash) }}" class="ui labeled icon button">
-      <i class="file icon"></i>
+      <i class="file pdf outline icon"></i>
       Download as PDF
     </a>
 </div>
