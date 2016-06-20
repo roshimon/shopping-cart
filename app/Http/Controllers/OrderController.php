@@ -204,6 +204,8 @@ class OrderController extends Controller
     {
         $order = Order::where('hash', $hash)->first();
 
+        PDF::useScript(storage_path('app/generate-pdf.js'));
+
         return PDF::createFromView(view('pages.order.invoice', compact('order')), "order-{$order->id}.pdf");
     }
 }
