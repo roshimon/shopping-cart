@@ -72,7 +72,7 @@
                     <tr>
                         <td>{{ $product->title }}</td>
                         <td>{{ $product->pivot->quantity }}</td>
-                        <td>€{{ number_format(($product->pivot->quantity * $product->price), 2, ',', '.') }}</td>
+                        <td>€ {{ number_format(($product->pivot->quantity * $product->price), 2, ',', '.') }}</td>
                     </tr>
                     @endforeach
                     <tr>
@@ -83,14 +83,14 @@
                     <tr>
                         <td>Shipping</td>
                         <td></td>
-                        <td>€5,00</td>
+                        <td>€ 5,00</td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th><strong>Order total</strong></th>
                         <th>{{ $order->totalQuantity() }}</th>
-                        <th><strong>€{{ number_format($order->total, 2, ',', '.')}}</strong></th>
+                        <th><strong>€ {{ number_format($order->total, 2, ',', '.')}}</strong></th>
                     </tr>
                 </tfoot>
             </table>
