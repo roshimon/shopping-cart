@@ -12,5 +12,5 @@ Happy coding!
 
 Support
 ======
-If you have any questions about the Shopping cart or the code, please make a new thread at:
+If you have any questions about the Shopping cart or the code, please create a new topic at:
 https://www.codecourse.com/forum
