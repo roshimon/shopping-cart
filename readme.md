@@ -1,3 +1,6 @@
+Shopping Cart - With Laravel
+===
+
 > "A shopping cart with everything you'd expect. Built to be easily extendable, plus flexible payment integration with Braintree." - Codecourse https://www.codecourse.com/library/lessons/build-a-shopping-cart
 
 This is a repo containing two series ([**Generating PDF files from HTML and CSS**](https://www.codecourse.com/library/lessons/generate-pdf-from-html-css/introduction) and [**Build a shopping cart**](https://www.codecourse.com/library/lessons/build-a-shopping-cart/introduction)) merged together in order to make a dynamic PDF invoice from the order you made with the Shopping Cart system.
