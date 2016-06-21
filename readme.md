@@ -9,3 +9,8 @@ Here is how it looks like:
 You can click on the download button on the order page. It will generate a PDF file from another view (specifically for the PDF) and download.
 
 Happy coding!
+
+Support
+======
+If you have any questions about the Shopping cart or the code, please make a new thread at:
+https://www.codecourse.com/forum
