@@ -44,6 +44,7 @@ class OrderController extends Controller
 
 	/**
 	 * Return the Order page.
+     *
 	 */
     public function index()
     {
@@ -64,7 +65,9 @@ class OrderController extends Controller
     /**
      * Show the order.
      *
-     * @param  String $hash
+     * @param $hash
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function show($hash)
     {
@@ -84,8 +87,10 @@ class OrderController extends Controller
 
     /**
      * Create the order.
+     * 
+     * @param CartFormRequest $request
      *
-     * @param  CartFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function create(CartFormRequest $request)
     {

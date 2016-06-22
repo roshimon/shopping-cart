@@ -25,7 +25,7 @@ class Address extends Model
     /**
      * Get the Order(s) attached to the Address.
      *
-     * @return \Illuminate\Database\Eloquent\hasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orders()
     {

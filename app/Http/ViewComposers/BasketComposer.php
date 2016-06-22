@@ -18,7 +18,6 @@ class BasketComposer
      * Create a new Basket composer.
      *
      * @param  Basket  $basket
-     * @return void
      */
     public function __construct(Basket $basket)
     {

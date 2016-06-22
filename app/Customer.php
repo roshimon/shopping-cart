@@ -17,8 +17,8 @@ class Customer extends Model
 
     /**
      * Get the Order(s) from the User.
-     *
-     * @return \Illuminate\Database\Eloquent\hasMany
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orders()
     {

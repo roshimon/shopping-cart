@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Basket\Basket;
-use App\Exception\QuantityExceededException;
+use App\Exceptions\QuantityExceededException;
 
 use App\Http\Requests;
 
@@ -38,10 +38,10 @@ class CartController extends Controller
         $this->product = $product;
     }
 
-	/**
-	 * Show all items in the Basket.
-	 *
-	 */
+    /**
+     * Show all items in the Basket.
+     *
+     */
     public function index()
     {
         $this->basket->refresh();
@@ -52,8 +52,10 @@ class CartController extends Controller
     /**
      * Add items to the Basket.
      *
-     * @param String  $slug
-     * @param Integer $quantity
+     * @param $slug
+     * @param $quantity
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function add($slug, $quantity)
     {
@@ -75,8 +77,11 @@ class CartController extends Controller
     /**
      * Update the Basket items.
      *
-     * @param  String  $slug
-     * @param  Request $request
+     * @param         $slug
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \App\Exceptions\QuantityExceededException
      */
     public function update($slug, Request $request)
     {

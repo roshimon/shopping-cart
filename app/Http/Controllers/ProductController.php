@@ -12,7 +12,9 @@ class ProductController extends Controller
 	/**
 	 * Get the product by slug.
 	 *
-	 * @param  String  $slug
+	 * @param $slug
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
 	 */
     public function get($slug)
     {

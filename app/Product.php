@@ -52,7 +52,7 @@ class Product extends Model
     /**
      * Get the Order(s) containing the Product.
      *
-     * @return \Illuminate\Database\Eloquent\belongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\belongsToMany
      */
     public function orders()
     {
