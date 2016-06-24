@@ -8,7 +8,6 @@ use App\Customer;
 
 use Storage;
 
-use App\Events\Event;
 use App\Events\OrderWasCreated;
 
 use App\Http\Requests;
@@ -17,9 +16,6 @@ use App\Http\Requests\CartFormRequest;
 use App\Order;
 
 use Braintree_Transaction;
-
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Http\Request;
 
 use PDF;
 
@@ -209,7 +205,7 @@ class OrderController extends Controller
     {
         $order = Order::where('hash', $hash)->first();
 
-        PDF::useScript(storage_path('app/generate-pdf.js'));
+        PDF::useScript(base_path(). '/resources/assets/js/generate-pdf.js');
 
         return PDF::createFromView(view('pages.order.invoice', compact('order')), "order-{$order->id}.pdf");
     }
