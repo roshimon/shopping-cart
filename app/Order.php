@@ -63,7 +63,7 @@ class Order extends Model
     public function totalQuantity()
     {
         $total = 0;
-        foreach($this->products as $product) {
+        foreach($this->products() as $product) {
             $total += $product->pivot->quantity;
         }
 
