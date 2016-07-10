@@ -13,7 +13,6 @@ You can click on the download button on the order page. It will generate a PDF f
 
 Happy coding!
 
-Support
-======
+### Support
 If you have any questions about the Shopping cart or the code, please create a new topic at:
 https://www.codecourse.com/forum
