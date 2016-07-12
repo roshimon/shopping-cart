@@ -83,7 +83,7 @@ class OrderController extends Controller
 
     /**
      * Create the order.
-     * 
+     *
      * @param CartFormRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -205,6 +205,7 @@ class OrderController extends Controller
     {
         $order = Order::where('hash', $hash)->first();
 
+        PDF::setBinaryPath(resource_path('phantomjs'));
         PDF::useScript(resource_path('assets/js/generate-pdf.js'));
 
         return PDF::createFromView(view('pages.order.invoice', compact('order')), "order-{$order->id}.pdf");
