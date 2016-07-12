@@ -13,6 +13,9 @@ You can click on the download button on the order page. It will generate a PDF f
 
 Happy coding!
 
+### [Important!] Supported operation systems
+In order to let the PDF downloader function work, you have to replace the [`phantomjs`](https://github.com/matthijs110/shopping-cart/blob/master/resources/phantomjs) file depending on your operation system. You can download this file at the [website](http://phantomjs.org/download.html) of PhantomJS. Unzip the file and put `bin/phantomjs` inside `resources/assets`. 
+
 ### Support
 If you have any questions about the Shopping cart or the code, please create a new topic at:
 https://www.codecourse.com/forum
