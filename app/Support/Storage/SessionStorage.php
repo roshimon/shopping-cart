@@ -11,7 +11,7 @@ class SessionStorage implements StorageInterface
 	/**
 	 * The bucket beeing used.
 	 *
-	 * @var Bucket
+	 * @var String
 	 */
 	protected $bucket;
 
@@ -40,11 +40,13 @@ class SessionStorage implements StorageInterface
 		return Session::put("{$this->bucket}.{$index}", $value);
 	}
 
-	/**
-	 * Get the product from the bucket.
-	 *
-	 * @param Integer $index
-	 */
+    /**
+     * Get the product from the bucket.
+     *
+     * @param $index
+     *
+     * @return mixed|null
+     */
 	public function get($index)
 	{
 		if (! $this->exists($index)) {
@@ -54,11 +56,13 @@ class SessionStorage implements StorageInterface
 		return Session::get("{$this->bucket}.{$index}");
 	}
 
-	/**
-	 * Check if the product index exists in the bucket.
-	 *
-	 * @param Integer $index
-	 */
+    /**
+     * Check if the product index exists in the bucket.
+     *
+     * @param $index
+     *
+     * @return mixed
+     */
 	public function exists($index)
 	{
 		return Session::has("{$this->bucket}.{$index}");
@@ -78,7 +82,7 @@ class SessionStorage implements StorageInterface
 	 *
 	 * @param Integer $index
 	 */
-	public function unset($index)
+	public function remove($index)
 	{
 		if ($this->exists($index)) {
 			Session::forget("{$this->bucket}.{$index}");

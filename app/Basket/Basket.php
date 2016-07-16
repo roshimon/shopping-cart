@@ -11,7 +11,7 @@ class Basket
 	/**
 	 * Instance of StorageInterface.
 	 *
-	 * @var Storage
+	 * @var StorageInterface
 	 */
 	protected $storage;
 
@@ -50,12 +50,14 @@ class Basket
 		$this->update($product, $quantity);
 	}
 
-	/**
-	 * Update the basket.
-	 *
-	 * @param  Product  $product
-	 * @param  Integer  $quantity
-	 */
+    /**
+     * Update the basket.
+     *
+     * @param Product $product
+     * @param         $quantity
+     *
+     * @throws QuantityExceededException
+     */
 	public function update(Product $product, $quantity)
 	{
 		if (! $this->product->find($product->id)->hasStock($quantity)) {
@@ -81,7 +83,7 @@ class Basket
 	 */
 	public function remove(Product $product)
 	{
-		$this->storage->unset($product->id);
+		$this->storage->remove($product->id);
 	}
 
 	/**
