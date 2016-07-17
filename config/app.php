@@ -172,6 +172,11 @@ return [
          */
         PhantomPdf\Laravel\LaravelServiceProvider::class,
 
+        /*
+         * Braintree
+         */
+        App\Providers\BraintreeServiceProvider::class,
+
     ],
 
     /*
