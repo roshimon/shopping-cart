@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Braintree_Configuration;
-
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
